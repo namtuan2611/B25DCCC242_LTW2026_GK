@@ -1,17 +1,125 @@
-.active {
-  color: red;
-  font-weight: bold;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
 }
 
-tr.favorite-row {
-  background-color: #fffde7;
+div[style*="padding: 20px"] {
+  max-width: 900px;
+  margin: 30px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-tr:hover {
-  background-color: #f5f5f5;
+nav {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 20px;
 }
 
 nav a {
-  margin-right: 15px;
   text-decoration: none;
+  color: #555;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #f0f2f5;
+  color: #0066cc;
+}
+.active {
+  color: red !important;
+  font-weight: bold;
+  background-color: #ffebee;
+}
+
+h1, h2 {
+  color: #2c3e50;
+  margin-top: 0;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #f8f9fa;
+  color: #333;
+  font-weight: bold;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+td {
+  border-bottom: 1px solid #eee;
+}
+
+
+tr.favorite-row {
+  background-color: #fffde7 !important;
+}
+
+
+tr:hover {
+  background-color: #f8f9fa;
+}
+
+
+button {
+  padding: 6px 14px;
+  margin-right: 6px;
+  cursor: pointer;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #f0f2f5;
+}
+
+
+input[type="text"], select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus, select:focus {
+  border-color: #0066cc;
+}
+
+
+form {
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
 }

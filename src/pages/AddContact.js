@@ -4,27 +4,33 @@ import { GROUPS } from '../data';
 
 const AddContact = ({ onAddContact }) => {
   const navigate = useNavigate();
+
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [group, setGroup] = useState('Bạn bè');
   const [errorMessage, setErrorMessage] = useState('');
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrorMessage('');
+
     if (!name.trim() || !phone.trim() || !email.trim()) {
       setErrorMessage('Vui lòng nhập đầy đủ thông tin');
       return;
     }
+
     const phoneRegex = /^0\d{9}$/;
     if (!phoneRegex.test(phone.trim())) {
       setErrorMessage('Số điện thoại phải gồm 10 chữ số và bắt đầu bằng số 0');
       return;
     }
+
     if (!email.includes('@')) {
       setErrorMessage('Email không hợp lệ');
       return;
     }
+
     onAddContact({
       name: name.trim(),
       phone: phone.trim(),
@@ -35,43 +41,47 @@ const AddContact = ({ onAddContact }) => {
   };
 
   return (
-    <div>
+    <div style={{ maxWidth: '480px', marginTop: '10px' }}>
       <h2>Thêm liên hệ mới</h2>
       <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="name">Họ tên: </label>
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
+          <label htmlFor="name" style={{ width: '120px', fontWeight: '500' }}>Họ tên</label>
           <input
             id="name"
             type="text"
+            style={{ flex: 1, padding: '8px' }}
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="phone">Số điện thoại: </label>
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
+          <label htmlFor="phone" style={{ width: '120px', fontWeight: '500' }}>Số điện thoại</label>
           <input
             id="phone"
             type="text"
+            style={{ flex: 1, padding: '8px' }}
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="email">Email: </label>
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
+          <label htmlFor="email" style={{ width: '120px', fontWeight: '500' }}>Email</label>
           <input
             id="email"
             type="text"
+            style={{ flex: 1, padding: '8px' }}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="group">Nhóm: </label>
+        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+          <label htmlFor="group" style={{ width: '120px', fontWeight: '500' }}>Nhóm</label>
           <select
             id="group"
+            style={{ flex: 1, padding: '8px' }}
             value={group}
             onChange={(e) => setGroup(e.target.value)}
           >
@@ -81,11 +91,11 @@ const AddContact = ({ onAddContact }) => {
           </select>
         </div>
 
-        <button type="submit">Thêm</button>
+        <button type="submit" style={{ padding: '8px 20px', cursor: 'pointer' }}>Thêm</button>
       </form>
 
       {errorMessage && (
-        <p style={{ color: 'red', marginTop: '10px' }}>{errorMessage}</p>
+        <p style={{ color: 'red', marginTop: '15px', fontWeight: 'bold' }}>{errorMessage}</p>
       )}
     </div>
   );
